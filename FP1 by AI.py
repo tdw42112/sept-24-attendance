@@ -1,9 +1,20 @@
 # This script generates random numbers for a PowerBall lottery ticket.
 
 # Import the necessary modules.
-
+# The 'random' module is used to generate random numbers.
+# The 'time' module is used to add a delay to the script.
 import random
 import time
+import os
+import sys
+
+# Enable ANSI escape codes for colored text on some terminals, like on Windows.
+if os.name == 'nt':
+    os.system('color')
+
+# Define ANSI color codes.
+RED = '\033[91m'
+RESET = '\033[0m'
 
 # --- Part 1: Greeting and User Input ---
 
@@ -39,9 +50,11 @@ powerball = red_ball
 # Print the numbers with the specified spacing.
 # The f-string is used for easy formatting and includes the space characters.
 print("Generating numbers...")
-time.sleep(2) # A longer delay before showing the final numbers
+# Add a 25-second delay before showing the final numbers as requested.
+print("Please wait 25 seconds for the numbers to be drawn...")
+time.sleep(25)
 print("Your winning numbers are:")
-print(f"{ball1}  {ball2}  {ball3}  {ball4}  {ball5}    {powerball}")
+print(f"{ball1}  {ball2}  {ball3}  {ball4}  {ball5}    {RED}{powerball}{RESET}")
 
 # --- Part 3: Farewell Message ---
 
